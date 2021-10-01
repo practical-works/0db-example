@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>0db-example</title>
+  <link rel="stylesheet" type="text/css" href="/libs/bulma.min.css">
+  <link rel="stylesheet" type="text/css" href="/libs/bulmaswatch.min.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <%- include("./partials/navbar") %>
+
+  <section class="section">
+    <!-- Message -->
+    <%- include("./partials/message") %>
+
+    <!-- Items-Section -->
+    <article class="panel">
+      <!-- Heading -->
+      <div class="panel-heading">
+        <%- include("./partials/toolbar", { items }) %>
+      </div>
+
+      <!-- Block -->
+      <div class="panel-block">
+        <!-- No-Items-Notice -->
+        <% if (!items.length) { -%>
+          <p>No items.</p>
+        <% } -%>
+
+        <!-- Items-Table -->
+        <%- include("./partials/table") %>
+      </div>
+    </article>
+  </section>
+</body>
+</html>

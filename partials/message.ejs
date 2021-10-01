@@ -1,0 +1,13 @@
+<% if (message) { -%>
+  <div class="notification is-primary is-size-5">
+    <a href="/" class="delete"></a>
+    <div class="is-info has-text-weight-bold">
+      <%= message.title %>
+    </div>
+    <div class="content">
+      <pre style="white-space: pre-line; padding: 0; background: transparent;" class="has-text-primary">
+        <%= message.content %>
+      </pre>
+    </div>
+  </div>
+<% } -%>

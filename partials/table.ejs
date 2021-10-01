@@ -1,0 +1,68 @@
+<% if (items.length) { -%>
+  <table class="table is-fullwidth is-narrow is-hoverable">
+    <thead>
+      <!-- Head-columns -->
+      <th>📝 Name</th>
+      <th>🔒 ID</th>
+      <th>🔒 Created At</th>
+      <th>🔒 Updated At</th>
+      <th class="has-text-info">🔧 Operations</th>
+    </thead>
+
+    <tbody>
+      <!-- New-Item-Row -->
+      <tr>
+        <form action="/create">
+          <td class="is-vcentered">
+            <input name="name" type="text" class="input is-primary">
+          </td>
+          <td class="is-vcentered">
+            <i class="tag is-primary is-light">⚡&nbsp; AUTO</i>
+          </td>
+          <td class="is-vcentered">
+            <i class="tag is-primary is-light">⚡&nbsp; AUTO</i>
+          </td>
+          <td class="is-vcentered">
+            <i class="tag is-primary is-light">⚡&nbsp; AUTO</i>
+          </td>
+          <td class="is-vcentered">
+            <button  type="submit" title="Create" class="button is-primary">
+              ✔️ Create
+            </button>
+          </td>
+        </form>
+      </tr>
+
+      <!-- Rows -->
+      <% for (const item of items) { -%>
+      <tr>
+        <form action="/update/<%= item.$id %>">
+          <td class="is-vcentered">
+            <input
+              name="name"
+              value="<%= item.name %>"
+              type="text"
+              class="input"
+            >
+          </td>
+          <td class="is-vcentered"><%= item.$id %></td>
+          <td class="is-vcentered"><%= item.$createdAt %></td>
+          <td class="is-vcentered"><%= item.$updatedAt %></td>
+          <td class="is-vcentered">
+            <button type="submit" title="Update" class="button is-info">
+              ✔️ Update
+            </button>
+            <a
+              href="/delete/<%= item.$id %>"
+              title="Delete"
+              class="button is-danger"
+            >
+              ❌ Delete
+            </a>
+          <td>
+        </form>
+      </tr>
+      <% } -%>
+    </tbody>
+  </table>
+<% } -%>
